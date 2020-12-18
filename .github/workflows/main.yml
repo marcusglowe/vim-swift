@@ -27,6 +27,10 @@ jobs:
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       # Runs a set of commands using the runners shell
+      - name: Actually add the submodule
+        run: |
+          git submodule update --init --recursive
+          
       - name: Get latest submodule and pull in
         run: |
           cd submodule
