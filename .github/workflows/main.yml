@@ -33,7 +33,7 @@ jobs:
           
       - name: Remove all existing files in root
         run: |
-          ls | grep -v "README.md\|LICENSE\|submodule" | xargs rm
+          ls | grep -v "README.md\|LICENSE\|submodule" | xargs rm -rf
       - name: Get latest submodule and pull in
         run: |
           cd submodule
