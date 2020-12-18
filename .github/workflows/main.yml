@@ -31,13 +31,16 @@ jobs:
         run: |
           git submodule update --init --recursive
           
+      - name: Remove all existing files in root
+        run: |
+          ls | grep -v "README.md\|LICENSE\|submodule" | xargs rm
       - name: Get latest submodule and pull in
         run: |
           cd submodule
           git checkout main
           git pull
           cd ..
-          cp -r submodule/utils/vim/ .
+          cp -r submodule/utils/vim/. ./
           git add .
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
